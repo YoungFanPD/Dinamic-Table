@@ -4,6 +4,7 @@ const cars = [{
         color: '#hh5432',
         year: '2011',
         price: 10000,
+        picture: 'https://cdn.pixabay.com/photo/2015/05/28/23/12/auto-788747_960_720.jpg',
     },
     {
         brand: 'Chevrolet Gli',
@@ -11,6 +12,7 @@ const cars = [{
         color: '#hh5432',
         year: '2001',
         price: 100000,
+        picture: 'https://cdn.pixabay.com/photo/2015/05/28/23/12/auto-788747_960_720.jpg',
     },
     {
         brand: 'Chevrolet Gli',
@@ -18,6 +20,7 @@ const cars = [{
         color: '#hh5432',
         year: '2001',
         price: 100000,
+        picture: 'https://cdn.pixabay.com/photo/2015/05/28/23/12/auto-788747_960_720.jpg',
     },
     {
         brand: 'Chevrolet Gli',
@@ -25,6 +28,7 @@ const cars = [{
         color: '#hh5432',
         year: '2001',
         price: 100000,
+        picture: 'https://cdn.pixabay.com/photo/2015/05/28/23/12/auto-788747_960_720.jpg',
     },
 ];
 
@@ -44,6 +48,7 @@ function printCars() {
         <td><input id="color-box-${car.model}" class="form-control input-sm" type="text"  readonly value="${car.color}"></td>
         <td><input id="year-box-${car.model}" class="form-control input-sm" type="text"  readonly value="${car.year}"></td>
         <td><input id="price-box-${car.model}" class="form-control input-sm" type="text"  readonly value="${car.price}"></td>
+        <td><image src="${car.picture}"/></td>
         <td>
                         <button onclick="editRow(getRow('${car.model}'))" id = "btn-update-${car.model}" class="btn btn-primary">
                             Update
@@ -51,19 +56,13 @@ function printCars() {
                         <button onclick="updateCar('${car.model}')" id = "btn-save-${car.model}" class="btn btn-primary hidden">
                             Save
                         </button>
-                        <button onclick="deleteCar('${car.model}')" class="btn btn-danger">
+                        <button onclick="deleteCar('${car.model}')" class="btn btn-danger mt-1">
                             Eliminar
                         </button>
                     </td>
                 </tr>`;
     });
     container.innerHTML = html;
-}
-
-function deleteCar(model) {
-    const index = cars.findIndex((car) => car.model == model);
-    cars.splice(index, 1);
-    printCars();
 }
 
 function getRow(model) {
@@ -81,21 +80,7 @@ function getRow(model) {
 function editRow(row) {
     row.forEach((box) => box.removeAttribute("readonly"));
 }
-/**function editRow(model) {
-    let brand = document.getElementById("brand-box-" + model);
-    let modelo = document.getElementById("model-box-" + model);
-    let color = document.getElementById("color-box-" + model);
-    let year = document.getElementById("year-box-" + model);
-    let price = document.getElementById("price-box-" + model);
-    document.getElementById("btn-update-" + model).style.display = "none";
-    document.getElementById("btn-save-" + model).style.display = "block";
-    brand.removeAttribute("readonly");
-    modelo.removeAttribute("readonly");
-    color.removeAttribute("readonly");
-    year.removeAttribute("readonly");
-    price.removeAttribute("readonly");
 
-} */
 function updateCar(model) {
     const row = getRow(model);
     cars.forEach((car) => {
@@ -107,6 +92,12 @@ function updateCar(model) {
             car.price = row[4].value;
         };
     });
+    printCars();
+}
+
+function deleteCar(model) {
+    const index = cars.findIndex((car) => car.model == model);
+    cars.splice(index, 1);
     printCars();
 }
 
