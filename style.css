@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+.align-center {
+    text-align: center;
+}
+
+label {
+    font-size: 25px;
+}
+
+.value-box {
+    width: 60px;
+}
