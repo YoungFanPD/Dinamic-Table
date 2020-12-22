@@ -13,3 +13,7 @@ label {
 .value-box {
     width: 60px;
 }
+
+.hidden {
+    display: none;
+}
