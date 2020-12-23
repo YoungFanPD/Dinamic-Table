@@ -1,6 +1,6 @@
 const cars = [{
         brand: 'Nissan Tsuru',
-        model: '2011yh',
+        model: '6511yh',
         color: '#hh5432',
         year: '2011',
         price: 10000,
@@ -15,16 +15,16 @@ const cars = [{
         picture: 'https://cdn.pixabay.com/photo/2015/05/28/23/12/auto-788747_960_720.jpg',
     },
     {
-        brand: 'Chevrolet Gli',
-        model: '2001gt',
+        brand: 'Ferrari',
+        model: '476ht',
         color: '#hh5432',
         year: '2001',
         price: 100000,
         picture: 'https://cdn.pixabay.com/photo/2015/05/28/23/12/auto-788747_960_720.jpg',
     },
     {
-        brand: 'Chevrolet Gli',
-        model: '2001gt',
+        brand: 'Chevrolet',
+        model: '2561yt',
         color: '#hh5432',
         year: '2001',
         price: 100000,
@@ -48,7 +48,10 @@ function printCars() {
         <td><input id="color-box-${car.model}" class="form-control input-sm" type="text"  readonly value="${car.color}"></td>
         <td><input id="year-box-${car.model}" class="form-control input-sm" type="text"  readonly value="${car.year}"></td>
         <td><input id="price-box-${car.model}" class="form-control input-sm" type="text"  readonly value="${car.price}"></td>
-        <td><image src="${car.picture}"/></td>
+        <td>
+        <input id="picture-box-${car.model}" class="form-control input-sm hidden" type="text" readonly value="${car.picture}">
+        <image id="picture-car-${car.model}" src="${car.picture}"/>
+        </td>
         <td>
                         <button onclick="editRow(getRow('${car.model}'))" id = "btn-update-${car.model}" class="btn btn-primary">
                             Update
@@ -65,6 +68,13 @@ function printCars() {
     container.innerHTML = html;
 }
 
+function setDisplay(model) {
+    document.getElementById("picture-car-" + model).style.display = "none";
+    document.getElementById("picture-box-" + model).style.display = "block";
+    document.getElementById("btn-update-" + model).style.display = "none";
+    document.getElementById("btn-save-" + model).style.display = "block";
+}
+
 function getRow(model) {
     let row = [];
     row[0] = document.getElementById("brand-box-" + model);
@@ -72,8 +82,8 @@ function getRow(model) {
     row[2] = document.getElementById("color-box-" + model);
     row[3] = document.getElementById("year-box-" + model);
     row[4] = document.getElementById("price-box-" + model);
-    document.getElementById("btn-update-" + model).style.display = "none";
-    document.getElementById("btn-save-" + model).style.display = "block";
+    row[5] = document.getElementById("picture-box-" + model);
+    setDisplay(model);
     return row;
 }
 
@@ -90,6 +100,7 @@ function updateCar(model) {
             car.color = row[2].value;
             car.year = row[3].value;
             car.price = row[4].value;
+            car.picture = row[5].value;
         };
     });
     printCars();

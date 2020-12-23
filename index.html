@@ -4,27 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dinamic Table</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CarInventory/css/grid.css">
     <link rel="stylesheet" href="../CarInventory/css/style.css">
 </head>
 
 <body>
     <div class="jumbotron">
         <h1 class="align-center">Inventory management</h1>
-        <div class="search-form col-lg-4">
-            <form id="form-car" onsubmit="event.preventDefault(), searchCar() " action="/cars.php ">
+        <div class="search-form col-lg-3">
+            <form id="form-car" onsubmit="event.preventDefault(), searchCar()">
                 <div class="form-group">
-                    <label for="search">Search Car</label>
-                    <input type="input" class="form-control" id="search" placeholder="enter the model car" required>
+                    <label for="search">Filtered Car Search</label>
+                    <input type="input" class="form-control" id="search" placeholder="enter the keyword" required>
                 </div>
             </form>
         </div>
         <div class="row">
             <div class="card bg-blue col-lg-3">
                 <div class="card-body">
-                    <form id="form-car" onsubmit="event.preventDefault(), addCar() " action="/cars.php ">
+                    <form id="form-car" onsubmit="event.preventDefault(), addCar()">
                         <div class="form-group align-center">
                             <label>Register Car</label>
                         </div>
@@ -46,12 +45,11 @@
                         </div>
                         <div class="form-group ">
                             <label for="price">price</label>
-                            <input type="text" class="form-control" id="price" placeholder="
-                            enter the price of the car" required>
+                            <input type="text" class="form-control" id="price" placeholder="enter the price of the car" required>
                         </div>
                         <div class="form-group">
                             <label for="picture">picture</label>
-                            <input type="text " class="form-control" id="picture" placeholder="enter the car image" required>
+                            <input type="text " class="form-control" id="picture" placeholder="enter the url car image" required>
                         </div>
                         <div class="box-button align-center">
                             <button type="submit" class="btn btn-success">Register Car</button>
@@ -72,7 +70,6 @@
                     </tr>
                 </thead>
                 <tbody id="container-cars">
-
                 </tbody>
             </table>
         </div>

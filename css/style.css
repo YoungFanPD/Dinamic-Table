@@ -11,11 +11,16 @@ img {
 }
 
 label {
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .value-box {
     width: 60px;
+}
+
+.primary-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
 }
 
 .hidden {
