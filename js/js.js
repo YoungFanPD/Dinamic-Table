@@ -138,6 +138,7 @@ function addCar() {
     car.year = document.getElementById('year').value;
     car.color = document.getElementById('color').value;
     car.price = document.getElementById('price').value;
+    car.picture = document.getElementById('picture').value;
     cars.push(car);
     printCars();
     document.getElementById('form-car').reset();
